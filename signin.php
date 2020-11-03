@@ -1,7 +1,7 @@
 <?php
 $title = 'Identification - Le Chouette coin';
 require 'includes/header.php';
-require 'includes/functions.php';
+
 //var_dump($_POST);
 if (isset($_POST['submit_signup']) && !empty($_POST['email_signup']) && !empty($_POST['password1_signup']) && !empty($_POST['username_signup'])) {
     $email = htmlspecialchars($_POST['email_signup']);
@@ -9,17 +9,16 @@ if (isset($_POST['submit_signup']) && !empty($_POST['email_signup']) && !empty($
     $password2 = htmlspecialchars($_POST['password2_signup']);
     $username = htmlspecialchars($_POST['username_signup']);
 
-    if (inscription($email, $username, $password1, $password2, $conn)) {
+    if (inscription($email, $username, $password1, $password2)) {
         echo 'Votre compte a bien été créé !';
-    } else {
-        unset($_POST);
     }
-}
-if (isset($_POST['submit_login']) && !empty($_POST['email_login']) && !empty($_POST['password_login'])) {
-    $email_login = htmlspecialchars($_POST['email_login']);
-    $password_login = htmlspecialchars($_POST['password_login']);
+} elseif (isset($_POST['submit_login']) && !empty($_POST['email_login']) && !empty($_POST['password_login'])) {
+    $email_login = strip_tags($_POST['email_login']);
+    $password_login = strip_tags($_POST['password_login']);
 
-    login($email_login, $password_login, $conn);
+    login($email_login, $password_login);
+} elseif (isset($_POST)) {
+    unset($_POST);
 }
 ?>
 <div class="row">
@@ -57,7 +56,7 @@ if (isset($_POST['submit_login']) && !empty($_POST['email_login']) && !empty($_P
                     Accepter les <a href="#">termes et conditions</a></label>
             </div>
 
-            <button name="submit_signup" type="submit" class="btn btn-primary">Sign up</button>
+            <button name="submit_signup" type="submit" class="btn btn-primary">S'inscrire</button>
         </form>
     </div>
 
@@ -67,9 +66,8 @@ if (isset($_POST['submit_login']) && !empty($_POST['email_login']) && !empty($_P
             action="<?php $_SERVER['REQUEST_URI']; ?>"
             method="POST">
             <div class="form-group">
-                <label for="InputEmail1">Adresse mail</label>
-                <input name="email_login" type="email" class="form-control" id="InputEmail1"
-                    aria-describedby="emailHelp" required>
+                <label for="InputEmail2">Adresse mail</label>
+                <input name="email_login" type="email" class="form-control" id="InputEmail2" required>
             </div>
 
             <div class="form-group">
@@ -77,7 +75,7 @@ if (isset($_POST['submit_login']) && !empty($_POST['email_login']) && !empty($_P
                 <input name="password_login" type="password" class="form-control" id="InputPassword" required>
             </div>
 
-            <button name="submit_login" type="submit" class="btn btn-primary">Sign In</button>
+            <button name="submit_login" type="submit" class="btn btn-success">Se connecter</button>
         </form>
         </form>
     </div>

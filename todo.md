@@ -2,6 +2,7 @@
 2 creer une connexion à la base de données (avec PDO) dans un config.php dans le
 dossier includes, qui contient tous les fichiers qui seront inclus sur des pages
 3 creer une base de données qui représente la structure de notre projet
+=========================================================================================
 4 creer un formulaire pour l'inscription des utilisateurs qui reprend les informations
 de connexion
 -> ne pas oublier l'action et la méthode du POST du formulaire
@@ -17,3 +18,10 @@ de connexion
     avec ($mdp=password_hash($mdp,PASSWORD_DEFAULT)) (md5/sha1 à éviter)
 -> creer une requete d'insertion de la requete en PDO avec des marqueurs nommés (bindValues)
 7 Factoriser le conde en créant une fonction qui réalise l'ajout d'utilisateurs dans un functions.php à partir de variables
+8 ajuster le formulaire pour la connexion
+9 Creer une fonction de connexion et l'implémenter
+10 AJOUTER LA VARIABLE global $conn DANS CHAQUE FONCTION PLUTOT QUE LA DEMANDER EN PARAMETRE
+11 Creation d'une fonction d'affichage des données depuis la BDD
+-> faire une requete SELECT pour y recuperer les paramètres de notre choix
+->Faire un array qui contient le fetchAll sur les donnéees récupérées
+-> Créer une boucle foreach qui passe chaque ligne des données récupérées depuis la BDD dans un tableau html
