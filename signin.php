@@ -1,8 +1,27 @@
 <?php
+$title = 'Identification - Le Chouette coin';
+require 'includes/header.php';
+require 'includes/functions.php';
+//var_dump($_POST);
+if (isset($_POST['submit_signup']) && !empty($_POST['email_signup']) && !empty($_POST['password1_signup']) && !empty($_POST['username_signup'])) {
+    $email = htmlspecialchars($_POST['email_signup']);
+    $password1 = htmlspecialchars($_POST['password1_signup']);
+    $password2 = htmlspecialchars($_POST['password2_signup']);
+    $username = htmlspecialchars($_POST['username_signup']);
 
- $title = 'Identification - Le Chouette coin';
- require 'includes/header.php';
- ?>
+    if (inscription($email, $username, $password1, $password2, $conn)) {
+        echo 'Votre compte a bien été créé !';
+    } else {
+        unset($_POST);
+    }
+}
+if (isset($_POST['submit_login']) && !empty($_POST['email_login']) && !empty($_POST['password_login'])) {
+    $email_login = htmlspecialchars($_POST['email_login']);
+    $password_login = htmlspecialchars($_POST['password_login']);
+
+    login($email_login, $password_login, $conn);
+}
+?>
 <div class="row">
     <div class="col-6">
         <form
@@ -49,16 +68,16 @@
             method="POST">
             <div class="form-group">
                 <label for="InputEmail1">Adresse mail</label>
-                <input name="email_signin" type="email" class="form-control" id="InputEmail1"
+                <input name="email_login" type="email" class="form-control" id="InputEmail1"
                     aria-describedby="emailHelp" required>
             </div>
 
             <div class="form-group">
-                <label for="InputPassword1">Mot de passe</label>
-                <input name="password1_signup" type="password" class="form-control" id="InputPassword1" required>
+                <label for="InputPassword">Mot de passe</label>
+                <input name="password_login" type="password" class="form-control" id="InputPassword" required>
             </div>
 
-            <button name="submit_signup" type="submit" class="btn btn-primary">Sign In</button>
+            <button name="submit_login" type="submit" class="btn btn-primary">Sign In</button>
         </form>
         </form>
     </div>
