@@ -1,0 +1,11 @@
+1 Changer le dbname
+2 Créer une base de données
+3 Modéliser nos tables {
+    "users" : "id,email,password,fullname,phone";
+    "products" : "product_id,name,description,city,price,author,category_id";
+    "categories" : "categories_id,name";
+}
+4 Créer nos tables
+-------------------------------------------------------------------
+
+4 Faire un système d'authenification
