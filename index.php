@@ -17,7 +17,7 @@
 </div>
 
 
-<table class="table table-dark">
+<!-- <table class="table table-dark">
     <thead>
         <tr>
             <th scope="col">id</th>
@@ -28,11 +28,11 @@
     </thead>
     <tbody>
         <?php
-        affichage();
+        //affichage();
         ?>
-    </tbody>
+</tbody>
 
-</table>
+</table> -->
 
 <?php
     require 'includes/footer.php';

@@ -30,7 +30,7 @@
                     <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Produits</a>
+                    <a class="nav-link" href="products.php">Produits</a>
                 </li>
             </ul>
             <ul>
@@ -42,6 +42,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#">Profil</a>
+                        <a class="dropdown-item" href="addproducts.php">Ajouter un article</a>
+                        <hr>
                         <a class="dropdown-item" href="?logout">Déconnexion</a>
                     </div>
                 </div>
