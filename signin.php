@@ -1,6 +1,7 @@
 <?php
 $title = 'Identification - Le Chouette coin';
 require 'includes/header.php';
+require 'includes/navbar.php';
 
 //var_dump($_POST);
 if (isset($_POST['submit_signup']) && !empty($_POST['email_signup']) && !empty($_POST['password1_signup']) && !empty($_POST['username_signup'])) {

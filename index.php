@@ -1,6 +1,7 @@
 <?php
     $title = 'Accueil - Le Chouette coin';
     require 'includes/header.php';
+    require 'includes/navbar.php';
 ?>
 
 
